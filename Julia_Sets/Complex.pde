@@ -1,3 +1,4 @@
+
 class Complex {
   float real;
   float imaginary;
@@ -16,7 +17,11 @@ class Complex {
   }
   
   public String toString(){
-     return String.format("%.1f + %.1fi", real, imaginary);  
+    String suffix = "+ " + String.format("%.1f", imaginary) + "i";
+    if(imaginary < 0){
+        suffix = "- " + String.format("%.1f", -imaginary) + "i";
+    }
+     return String.format("%.1f %s", real, suffix);  
   }
   
 }

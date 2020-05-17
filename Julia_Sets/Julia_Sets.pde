@@ -24,6 +24,14 @@ void draw() {
   generatePoints(point, points);
   plotPoints(points);
   plot(c.real, c.imaginary, color(230, 39, 55));
+  displayFunction(point, c, depth);
+}
+
+void displayFunction(Complex a, Complex c, int depth){
+  String s1 = String.format("z(1) = %s", point.toString());
+  String s2 = String.format("z(n) = (z(n-1)+%s)^2", c.toString());
+  text(s1, 8, 20);
+  text(s2, 8, 40);
 }
 
 void generatePoints(Complex point, Complex[] points) {
