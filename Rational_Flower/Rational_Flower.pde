@@ -1,7 +1,9 @@
 final int n = 180;
-final float phi = 0.61803398875f;
-final float interval = 0.000002f;
-float theta = phi;
+final double phi = 0.61803398875d;
+final double interval = 0.000000511111d;
+final float d = 20;
+final float gap = 2;
+double theta = phi;
 
 void setup() {
   size(1200, 800);
@@ -17,12 +19,14 @@ void draw() {
   translate(width/2, height/2);
   for (int i = 0; i < n; i++) {
     push();
-    rotate(i*theta*TWO_PI);
-    translate(2*i, 0);
-    ellipse(0, 0, 20, 20);
+    rotate((float)(i*theta*TWO_PI));
+    translate(gap*i, 0);
+    ellipse(0, 0, d, d);
     pop();
   }
-  float speed = sq(15*mouseX/width);
+  noFill();
+  ellipse(0, 0, n*gap*2+d, n*gap*2+d);
+  double speed = sq(15*mouseX/width);
   if(mousePressed){
      if(mouseButton == LEFT){
         theta += interval*speed; 
