@@ -1,6 +1,6 @@
 Ball[] balls;
 int n = 150;
-PVector mousePos = new PVector(width/2, height/2);
+PVector mousePos = new PVector(600, 400);
 
 void setup(){
   size(1200, 800);
