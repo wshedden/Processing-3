@@ -17,8 +17,8 @@ class Ball {
 
   void display() {
     float dist = pos.dist(new PVector(mousePos.x, mousePos.y));
-    int vis = max(min((int) (20000/dist), 255), 0);
-    vis = vis > 100 ? vis : 0;
+    int vis = max(min((int) (1000000/sq(dist)), 255), 0);
+    vis = vis > 15 ? vis : 0;
     strokeWeight(0.5);
     fill(getColour(), vis);
     stroke(200, vis);
