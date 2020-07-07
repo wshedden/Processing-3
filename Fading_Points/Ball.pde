@@ -23,6 +23,7 @@ class Ball {
     fill(getColour(), vis);
     stroke(200, vis);
     line(pos.x, pos.y, mousePos.x, mousePos.y);
+    noStroke();
     ellipse(pos.x, pos.y, 2*r, 2*r);
   }
 
