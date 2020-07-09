@@ -8,17 +8,17 @@ class Ball {
 
   void reset() {
     pos = new PVector(random(width), random(height));
-    vel = new PVector(random(-3, 3), random(-3, 3));
+    vel = new PVector(random(-5, 5), random(-5, 5));
   }
   
   int getColour(){
      return lerpColor(color(217, 59, 164), color(62, 189, 170), pos.x*pos.y/width/height*2.5);
   }
-
+  
   void display() {
     float dist = pos.dist(new PVector(mousePos.x, mousePos.y));
-    int vis = max(min((int) (1000000/sq(dist)), 255), 0);
-    vis = vis > 15 ? vis : 0;
+    int vis = max(min((int) (100000000/pow(dist, 3)), 255), 0);
+    vis = vis > 5 ? vis : 0;
     strokeWeight(0.5);
     fill(getColour(), vis);
     stroke(200, vis);
