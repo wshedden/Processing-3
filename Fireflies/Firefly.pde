@@ -8,7 +8,7 @@ class Firefly {
   public Firefly() {
     colour = color(20);
     pos = new PVector(random(width), random(height));
-    vel = new PVector(random(-0.5, 0.5), random(-0.5, 0.5));
+    vel = new PVector(random(-0.2, 0.2), random(-0.2, 0.2));
     clock = random(0, 1);
   }
 
@@ -19,15 +19,15 @@ class Firefly {
   }
 
   void update() {
-    clock += 0.001;
+    clock+=0.001;
     pulse = max(pulse - 0.01, 0);
     vel.add(random(-0.2, 0.2), random(-0.2, 0.2));
-    vel.limit(2);
+    vel.limit(1);
     pos.add(vel);
     pos = new PVector(abs(pos.x+width) % width, abs(pos.y+height) % height);
-    if(clock > 1){
-       clock = 0;
-       pulse = 1;
+    if (clock >= 1) {
+      clock = 0;
+      pulse = 1;
     }
     colour = lerpColor(color(20), color(252, 227, 3), pulse);
     display();

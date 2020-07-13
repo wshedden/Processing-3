@@ -10,19 +10,15 @@ void setup() {
 }
 
 void draw() {
-  frameRate(10000);
+  frameRate(60);
   background(0);
   for (int i = 0; i < n; i++) {
     bugs[i].update(); 
     for (int k = 0; k < n; k++) {
       if (i != k) {
         if (bugs[i].pos.dist(bugs[k].pos) < 80) {
-          //stroke(255);
-          //line(bugs[i].pos.x, bugs[i].pos.y, bugs[k].pos.x, bugs[k].pos.y);
-          if (bugs[k].pulse == 1) {
-            println("zing");
-            //bugs[i].pulse = (bugs[i].pulse+1f)/2f;
-            bugs[i].clock += 0.05;
+          if (bugs[k].clock == 0) {
+            bugs[i].clock += 0.1;
           }
         }
       }
